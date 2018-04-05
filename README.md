@@ -1,10 +1,10 @@
 # agora
 
-> Agora Geoservice Web Application
+> Agora Web Application
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
