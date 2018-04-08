@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRouter from '../common/vue/VueRouter';
+import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView';
 import NotFoundView from '../views/NotFoundView';
 
@@ -11,8 +11,7 @@ const routes = new VueRouter({
   hashbang: false,
   linkActiveClass: 'active',
   base: __dirname,
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'home',
       component: HomeView

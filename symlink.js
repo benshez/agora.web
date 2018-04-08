@@ -11,8 +11,9 @@ var fs = require('fs');
 var cp = require('child_process');
 var path = require('path');
 
-var commonPath = '../common/exports';
-var appPath = './src/common';
+var commonPath = '../agora.native/app/shared';
+
+var appPath = './src/shared';
 
 // Root SymLink Code for Windows
 if (process.argv.length > 2) {
@@ -43,9 +44,9 @@ try {
     console.log('Symlink error: ', err);
   }
   // Failed, and doesnt exist which means they weren't running root; so lets try to get root
-  err.code === 'EEXIST'
-    ? console.log('A symlink already exists.')
-    : AttemptRootSymlink();
+  err.code === 'EEXIST' ?
+    console.log('A symlink already exists.') :
+    AttemptRootSymlink();
 }
 
 // Might silent fail on OSX, so we have to see if it exists
@@ -76,8 +77,8 @@ function AttemptRootSymlink() {
     }
     cp.execSync(
       "powershell -Command \"Start-Process 'node' -ArgumentList '" +
-        curPath +
-        '/install.js symlink\' -verb runas"'
+      curPath +
+      '/install.js symlink\' -verb runas"'
     );
   } else {
     console.log(
