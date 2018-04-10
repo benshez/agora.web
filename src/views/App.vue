@@ -1,12 +1,14 @@
 <script>
-import NavbarComponent from '../components/NavbarComponent';
+import NavbarComponent from '../components/navigation/NavbarComponent.vue';
+import LoginComponent from '../components/user/LoginComponent.vue';
 
 require('material-design-lite');
 
 export default {
   name: 'app',
   components: {
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   }
 };
 </script>
@@ -21,6 +23,7 @@ export default {
     <navbar-component></navbar-component>
     <main class="mdl-layout__content">
       <div class="page-content">
+        <login-component></login-component>
         <router-view></router-view>
       </div>
     </main>
