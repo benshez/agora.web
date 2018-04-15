@@ -2,7 +2,7 @@
 <div>
   <div class="mdl-grid">
     <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
-      <div class="mdl-card__title mdl-color--orange-800">
+      <div class="mdl-card__title mdl-color--primary">
         <h2 class="mdl-card__title-text mdl-color-text--white">User Login</h2>
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
@@ -23,9 +23,10 @@
           </div>
 
           <div class="mdl-cell mdl-cell--12-col send-button" align="center">
-            <button type="submit"  class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+            <button type="submit" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
             Log In
             </button>
+            <button type="button" v-on:click="getUser()" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">Register</button>
           </div>
         </form>
       </div>
@@ -38,7 +39,7 @@
         <h2 class="mdl-card__title-text mdl-color-text--white">Create a New Account</h2>
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
-
+eqweq{{user}}
         <b class="mdl-color-text--accent">Error message goes here</b>
 
         <form method="POST" action="">
@@ -77,8 +78,33 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations, mapGetters } from 'vuex';
+import store from '../../store';
+import * as mutationTypes from 'agora.common/store/types';
+
 export default {
-  name: 'LoginComponent'
+  name: 'LoginComponent',
+  computed: {
+    user: () => {
+      get: {
+        debugger;
+        return store.user;
+      }
+      set: {
+        store
+          .dispatch('UserModule/GET_USER_BY_EMAIL', {
+            email: 'benshez@gmail.com',
+            password: 'B3nSh3z*'
+          })
+          .then(reponse => {});
+      }
+    }
+  },
+  methods: {
+    getUser() {
+      this.user = '';
+    }
+  }
 };
 </script>
 

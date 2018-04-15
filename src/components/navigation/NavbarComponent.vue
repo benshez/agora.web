@@ -1,12 +1,12 @@
 <template>
 <div class="mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
+  <header class="mdl-layout__header mdl-color--primary">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">Agora</span>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Agora</span>
+    <span class="mdl-layout-title mdl-color--primary"><span class="mdl-color-text--white">Agora</span></span>
     <nav class="mdl-navigation">
       <router-link class="mdl-navigation__link" to="/" @click.native="hideMenu">Home</router-link>
       <router-link class="mdl-navigation__link" to="/post" @click.native="hideMenu">Post a picture</router-link>
@@ -35,8 +35,6 @@ header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
-  background-color: #35495e;
-  color: #ffffff;
 }
 
 header span {
