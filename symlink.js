@@ -11,9 +11,9 @@ var fs = require('fs');
 var cp = require('child_process');
 var path = require('path');
 
-var commonPath = '../agora.native/app/shared';
+var commonPath = '../agora.native/app/common';
 
-var appPath = './src/shared';
+var appPath = './src/common';
 
 // Root SymLink Code for Windows
 if (process.argv.length > 2) {

@@ -7,23 +7,23 @@
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
 
-        <b class="mdl-color-text--accent">Error message goes here</b>
+        <b class="mdl-color-text--accent">{{message}}</b>
 
         <form method="POST" action="">
           <input type="hidden" name="action" value="login"/>
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_username">Username</label>
-            <input class="mdl-textfield__input" type="text" id="textfield_username" name="username"/>
+            <input class="mdl-textfield__input" type="text" id="textfield_username" v-model="loginUsername" name="username"/>
           </div>
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password">Password</label>
-            <input class="mdl-textfield__input" type="password" id="textfield_password" name="password"/>
+            <input class="mdl-textfield__input" type="password" id="textfield_password" v-model="loginPassword" name="password"/>
           </div>
 
           <div class="mdl-cell mdl-cell--12-col send-button" align="center">
-            <button type="submit" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+            <button type="button" v-on:click="getUser()" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
             Log In
             </button>
             <button type="button" v-on:click="getUser()" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">Register</button>
@@ -39,7 +39,7 @@
         <h2 class="mdl-card__title-text mdl-color-text--white">Create a New Account</h2>
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
-eqweq{{user}}
+
         <b class="mdl-color-text--accent">Error message goes here</b>
 
         <form method="POST" action="">
@@ -78,31 +78,52 @@ eqweq{{user}}
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations, mapGetters } from 'vuex';
-import store from '../../store';
+import { mapState } from 'vuex';
+import store from 'agora.common/store';
 import * as mutationTypes from 'agora.common/store/types';
 
 export default {
   name: 'LoginComponent',
+  data() {
+    return {
+      loginUsername: '',
+      loginPassword: ''
+    };
+  },
   computed: {
-    user: () => {
-      get: {
-        debugger;
-        return store.user;
+    ...mapState({
+      error: state => {
+        return state.UserModule.error;
+      },
+      message: state => {
+        return state.UserModule.message;
       }
-      set: {
-        store
-          .dispatch('UserModule/GET_USER_BY_EMAIL', {
-            email: 'benshez@gmail.com',
-            password: 'B3nSh3z*'
-          })
-          .then(reponse => {});
-      }
-    }
+    })
   },
   methods: {
+    onValidateUserName() {
+      if (this.loginUsername === '') return false;
+      return true;
+    },
+    onValidateUserPassword() {
+      if (this.loginPassword === '') return false;
+      return true;
+    },
     getUser() {
-      this.user = '';
+      if (!this.onValidateUserName() === '' || !this.onValidateUserPassword()) {
+        store.commit(`UserModule/${mutationTypes.USER_LOGIN_HAS_ERROR}`, true);
+        store.commit(
+          `UserModule/${mutationTypes.USER_LOGIN_ERROR_MESSAGE}`,
+          !this.onValidateUserName()
+            ? 'Name cannot be empty.'
+            : 'Password cannot be empty.'
+        );
+        return;
+      }
+      store.dispatch(`UserModule/${mutationTypes.GET_USER_BY_EMAIL}`, {
+        email: this.loginUsername,
+        password: this.loginPassword
+      });
     }
   }
 };

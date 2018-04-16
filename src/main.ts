@@ -3,7 +3,7 @@ import App from './views/App.vue';
 import { routes } from './router';
 import store from './store';
 
-Vue.prototype.$store = store;
+//Vue.prototype.$store = store;
 
 new Vue({
   el: '#app',
