@@ -1,11 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { UserModule } from '../common/store/modules/user';
-import { AgoraConstants } from '../common/system/constants/constants';
+import { UserModule } from './modules/user';
+import { AgoraConstants } from '../system/constants/constants';
 
 Vue.use(Vuex);
-
-//const debug = process.env.NODE_ENV !== 'production';
 
 const store = new Vuex.Store({
   modules: { UserModule },

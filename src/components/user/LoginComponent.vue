@@ -7,14 +7,15 @@
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
 
-        <b class="mdl-color-text--accent">{{message}}</b>
+        <b class="mdl-color-text--accent error-message">{{message}}</b>
 
         <form method="POST" action="">
           <input type="hidden" name="action" value="login"/>
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_username">Username</label>
-            <input class="mdl-textfield__input" type="text" id="textfield_username" v-model="loginUsername" name="username"/>
+            <label class="mdl-textfield__label mdl-color-text--grey" for="loginUsername">Username</label>
+            <input v-validate="'required|email'" class="mdl-textfield__input" type="text" id="loginUsername" v-model="loginUsername" name="loginUsername"/>
+            <span class="mdl-textfield__error" v-show="errors.has('loginUsername')">{{ errors.first('loginUsername') }}</span>
           </div>
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
@@ -40,7 +41,7 @@
       </div>
       <div class="mdl-card__supporting-text mdl-grid">
 
-        <b class="mdl-color-text--accent">Error message goes here</b>
+        <b class="mdl-color-text--accent error-message">Error message goes here</b>
 
         <form method="POST" action="">
           <input type="hidden" name="action" value="register"/>
@@ -79,8 +80,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import store from 'agora.common/store';
-import * as mutationTypes from 'agora.common/store/types';
+import store from '../../common/store';
+import * as mutationTypes from '../../common/store/types';
 
 export default {
   name: 'LoginComponent',
@@ -110,20 +111,24 @@ export default {
       return true;
     },
     getUser() {
-      if (!this.onValidateUserName() === '' || !this.onValidateUserPassword()) {
-        store.commit(`UserModule/${mutationTypes.USER_LOGIN_HAS_ERROR}`, true);
-        store.commit(
-          `UserModule/${mutationTypes.USER_LOGIN_ERROR_MESSAGE}`,
-          !this.onValidateUserName()
-            ? 'Name cannot be empty.'
-            : 'Password cannot be empty.'
-        );
-        return;
-      }
+      // if (!this.onValidateUserName() === '' || !this.onValidateUserPassword()) {
+      //   store.commit(`UserModule/${mutationTypes.USER_LOGIN_HAS_ERROR}`, true);
+      //   store.commit(
+      //     `UserModule/${mutationTypes.USER_LOGIN_ERROR_MESSAGE}`,
+      //     !this.onValidateUserName()
+      //       ? 'Name cannot be empty.'
+      //       : 'Password cannot be empty.'
+      //   );
+      //   return;
+      // }
+      this.$validator.validateAll().then((result) => {
+        if (!result) return;
       store.dispatch(`UserModule/${mutationTypes.GET_USER_BY_EMAIL}`, {
         email: this.loginUsername,
         password: this.loginPassword
       });
+      });
+
     }
   }
 };
@@ -144,5 +149,14 @@ export default {
 }
 .util-no-decoration {
   text-decoration: none;
+}
+
+.mdl-textfield.is-dirty .mdl-textfield__error, .mdl-textfield.is-focused .mdl-textfield__error {
+  visibility: visible;
+}
+
+.error-message {
+    text-align: left;
+    word-break: break-all;
 }
 </style>
