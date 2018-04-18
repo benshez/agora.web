@@ -78,10 +78,11 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex';
 import store from '../../common/store';
 import * as mutationTypes from '../../common/store/types';
+import { IRootState } from '../../common/interfaces/store/IRootState';
 
 export default {
   name: 'LoginComponent',
@@ -93,11 +94,11 @@ export default {
   },
   computed: {
     ...mapState({
-      error: state => {
-        return state.UserModule.error;
+      error: (state: IRootState) => {
+        return state.user.error;
       },
-      message: state => {
-        return state.UserModule.message;
+      message: (state: IRootState) => {
+        return state.user.message;
       }
     })
   },
@@ -111,24 +112,13 @@ export default {
       return true;
     },
     getUser() {
-      // if (!this.onValidateUserName() === '' || !this.onValidateUserPassword()) {
-      //   store.commit(`UserModule/${mutationTypes.USER_LOGIN_HAS_ERROR}`, true);
-      //   store.commit(
-      //     `UserModule/${mutationTypes.USER_LOGIN_ERROR_MESSAGE}`,
-      //     !this.onValidateUserName()
-      //       ? 'Name cannot be empty.'
-      //       : 'Password cannot be empty.'
-      //   );
-      //   return;
-      // }
-      this.$validator.validateAll().then((result) => {
+      this.$validator.validateAll().then(result => {
         if (!result) return;
-      store.dispatch(`UserModule/${mutationTypes.GET_USER_BY_EMAIL}`, {
-        email: this.loginUsername,
-        password: this.loginPassword
+        store.dispatch(`user/${mutationTypes.GET_USER_BY_EMAIL}`, {
+          email: this.loginUsername,
+          password: this.loginPassword
+        });
       });
-      });
-
     }
   }
 };
@@ -151,12 +141,13 @@ export default {
   text-decoration: none;
 }
 
-.mdl-textfield.is-dirty .mdl-textfield__error, .mdl-textfield.is-focused .mdl-textfield__error {
+.mdl-textfield.is-dirty .mdl-textfield__error,
+.mdl-textfield.is-focused .mdl-textfield__error {
   visibility: visible;
 }
 
 .error-message {
-    text-align: left;
-    word-break: break-all;
+  text-align: left;
+  word-break: break-all;
 }
 </style>
