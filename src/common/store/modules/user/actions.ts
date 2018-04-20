@@ -24,7 +24,7 @@ export const actions: ActionTree<IUser, IRootState> = {
       })
       .catch(error => {
         commit(mutationTypes.USER_LOGIN_HAS_ERROR, true);
-        commit(mutationTypes.USER_LOGIN_ERROR_MESSAGE, error);
+        commit(mutationTypes.USER_LOGIN_ERROR_MESSAGE, error.message);
       });
   },
 
