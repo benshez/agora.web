@@ -4,6 +4,9 @@ dist/
 npm-debug.log
 yarn-error.log
 
+# All src js files
+src/**/*.js
+
 # Editor directories and files
 .idea
 *.suo
