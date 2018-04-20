@@ -7,8 +7,8 @@ yarn-error.log
 # All src js files
 src/**/*.js
 
-# All constants
-src/common/system/constants/constants.ts
+# All private
+src/common/system/private/**/*.ts
 
 # Editor directories and files
 .idea
