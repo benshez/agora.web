@@ -103,14 +103,6 @@ export default {
     })
   },
   methods: {
-    onValidateUserName() {
-      if (this.loginUsername === '') return false;
-      return true;
-    },
-    onValidateUserPassword() {
-      if (this.loginPassword === '') return false;
-      return true;
-    },
     getUser() {
       this.$validator.validateAll().then(result => {
         if (!result) return;
