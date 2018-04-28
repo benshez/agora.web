@@ -30,7 +30,7 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
 header {
   margin: 0;
   height: 56px;

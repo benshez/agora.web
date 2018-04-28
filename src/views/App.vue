@@ -1,4 +1,4 @@
-<script>
+<script lang="js" scoped>
 import NavbarComponent from '../components/navigation/NavbarComponent.vue';
 import LoginComponent from '../components/user/LoginComponent.vue';
 
@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://code.getmdl.io/1.2.1/material.blue-red.min.css');
 </style>
