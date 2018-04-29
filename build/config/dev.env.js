@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../../public/assets/js/'),
     filename: 'agora.js',
-    publicPath: '/public/assets/js/'
+    publicPath: '/assets/js/'
   },
   module: {
     rules: [{

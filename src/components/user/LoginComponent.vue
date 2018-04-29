@@ -99,3 +99,14 @@ export default {
   word-break: break-all;
 }
 </style>
+<template>
+	<mdc-layout-grid class="content">
+		<mdc-layout-cell span=6>
+      <mdc-card>
+        <mdc-card-header title='Login' primary></mdc-card-header>
+        <mdc-textfield :type="'text'" :required=true :label="'Username'" :value="''"/>
+        <mdc-card-action-button>Login</mdc-card-action-button>
+      </mdc-card>  
+		</mdc-layout-cell>
+  </mdc-layout-grid>
+</template>
