@@ -13,13 +13,17 @@ export const routes = new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        description: 'Home'
+      }
     },
     {
       path: '/about',
-      name: 'about',
-      component: About
+      component: About,
+      meta: {
+        description: 'About'
+      }
     },
     {
       path: '*',

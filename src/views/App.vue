@@ -1,61 +1,71 @@
-<script lang="js" scoped>
-import NavbarComponent from '../components/navigation/NavbarComponent.vue';
-import LoginComponent from '../components/user/LoginComponent.vue';
+<template>
+  <div class="mdc-typography--comfortaa">
+    <mdc-layout-app>
+      <toolbar-component slot="toolbar"/>
+		  <drawer-component slot="drawer"/>
+      <mdc-linear-progress indeterminate/>
 
-require('material-design-lite');
+      <main>
+        <router-view />
+      </main>
+    </mdc-layout-app>
+  </div>
+</template>
+
+<script lang="js" scoped>
+import DrawerComponent from '../components/navigation/DrawerComponent.vue';
+import ToolbarComponent from '../components/navigation/ToolbarComponent.vue';
 
 export default {
   name: 'app',
   components: {
-    NavbarComponent,
-    LoginComponent
+    DrawerComponent,
+    ToolbarComponent
   }
 };
 </script>
 
-<style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://code.getmdl.io/1.2.1/material.blue-red.min.css');
-</style>
+<style lang="scss">
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+    url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2)
+      format('woff2');
+  unicode-range: U+0000-00ff, U+0131, U+0152-0153, U+02bb-02bc, U+02c6, U+02da,
+    U+02dc, U+2000-206f, U+2074, U+20ac, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Comfortaa Regular'), local('Comfortaa-Regular'),
+    url(https://fonts.gstatic.com/s/comfortaa/v12/1Ptsg8LJRfWJmhDAuUs4TYFq.woff2)
+      format('woff2');
+  unicode-range: U+0000-00ff, U+0131, U+0152-0153, U+02bb-02bc, U+02c6, U+02da,
+    U+02dc, U+2000-206f, U+2074, U+20ac, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
 
-<template>
-  <div id="appContainer" class="mdl-js-layout">
-    <navbar-component></navbar-component>
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <login-component></login-component>
-        <router-view></router-view>
-      </div>
-    </main>
-  </div>
-</template>
+$font-stack: 'Comfortaa', Helvetica, Arial, sans-serif;
 
-<style>
 html {
   overflow: hidden;
+  height: 100%;
 }
 
 body {
+  font-family: $font-stack !important;
   margin: 0;
-}
+  height: 100%;
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  .content {
+    font-family: $font-stack !important;
+  }
 }
-
-main {
-  text-align: center;
-  margin-top: 80px;
-}
-
-.page-content {
-  overflow: auto;
-  position: fixed;
-  width: 100%;
-  top: 65px;
-  bottom: 0;
+.mdc-typography--comfortaa {
+  font-family: $font-stack !important;
 }
 </style>

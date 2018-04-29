@@ -1,14 +1,46 @@
 'use strict'
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const TARGET = process.env.NODE_ENV;
 
 module.exports = {
   entry: path.resolve(__dirname, '../../src/main.ts'),
   output: {
-    path: path.resolve(__dirname, '../../dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    path: path.resolve(__dirname, '../../public/assets/js/'),
+    filename: 'agora.js',
+    publicPath: '/public/assets/js/'
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new UglifyJSPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        ecma: 8,
+        warnings: false,
+        compress: {
+          warnings: false,
+          conditionals: true,
+          unused: true,
+          comparisons: true,
+          sequences: true,
+          dead_code: true,
+          evaluate: true,
+          join_vars: true,
+          if_return: true
+        },
+        output: {
+          comments: false,
+          beautify: false,
+        },
+        toplevel: false,
+        nameCache: null,
+        ie8: false,
+        keep_classnames: undefined,
+        keep_fnames: false,
+        safari10: false,
+      }
+    })]
   },
   module: {
     rules: [{
@@ -39,6 +71,10 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
+            'css': [
+              'vue-style-loader',
+              'css-loader'
+            ],
             'scss': [
               'vue-style-loader',
               'css-loader',

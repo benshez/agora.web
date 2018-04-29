@@ -6,9 +6,9 @@ const TARGET = process.env.NODE_ENV;
 module.exports = {
   entry: path.resolve(__dirname, '../../src/main.ts'),
   output: {
-    path: path.resolve(__dirname, '../../dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    path: path.resolve(__dirname, '../../public/assets/js/'),
+    filename: 'agora.js',
+    publicPath: '/public/assets/js/'
   },
   module: {
     rules: [{
@@ -92,8 +92,10 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    noInfo: false,
+    overlay: true,
+    contentBase: './public',
+    inline: true,
   },
   devtool: '#eval-source-map'
 }
