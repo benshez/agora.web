@@ -4,6 +4,9 @@ dist/
 npm-debug.log
 yarn-error.log
 
+# All public js files
+public/**/*.js
+
 # All src js files
 src/**/*.js
 
