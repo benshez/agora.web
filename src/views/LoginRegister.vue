@@ -1,7 +1,8 @@
 <template>
   <mdc-layout-app>
-    <login-component />
-    <register-component />
+    <keep-alive>
+      <component v-on:clicked="onToggle" v-bind:is="dynamicComponent"></component>
+    </keep-alive>
   </mdc-layout-app>
 </template>
 
@@ -14,6 +15,16 @@ export default {
   components: {
     LoginComponent,
     RegisterComponent
+  },
+  data() {
+    return {
+      dynamicComponent: 'login-component'
+    };
+  },
+  methods: {
+    onToggle(arg) {
+      this.dynamicComponent = arg;
+    }
   }
 };
 </script>

@@ -7,14 +7,15 @@
           <mdc-card-subtitle><b class="mdl-color-text--accent error-message">{{message}}</b></mdc-card-subtitle>
           <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="'Username'" v-model="Username" id="Username" name="Username" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="'Password'" v-model="Password" id="Password" name="Password" />
+          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="'Confirm Password'" v-model="Password" id="ConfirmPassword" name="ConfirmPassword" />
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true>Login</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onLogin()">Login</mdc-card-action-button>
             <mdc-card-action-button :raised=true>Forgot Password</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
-            <mdc-card-action-button :raised=true @click="getUser()">Register</mdc-card-action-button>
+            <mdc-card-action-button :raised=true @click="setUser()">Register</mdc-card-action-button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -40,7 +41,10 @@ export default {
   methods: {
     doValidateUsername() {},
     doValidatePassword() {},
-    getUser() {}
+    setUser() {},
+    onLogin() {
+      this.$emit('clicked', 'login-component');
+    }
   },
   computed: {}
 };
