@@ -28,13 +28,11 @@ export default {
 </script>
 
 <style lang="scss">
-
 $font-stack: 'Comfortaa', Helvetica, Arial, sans-serif;
 $mdc-theme-primary: #6200ee;
 $mdc-theme-text-primary-on-primary: white;
 
 html {
-  overflow: hidden;
   height: 100%;
 }
 
@@ -47,10 +45,15 @@ body {
     font-family: $font-stack !important;
   }
 }
-.mdc-typography, .mdc-typography--comfortaa {
+.mdc-typography,
+.mdc-typography--comfortaa {
   font-family: $font-stack !important;
 
-  .mdc-toolbar__title, .mdc-drawer-item, .mdc-card__title, .mdc-button, .mdc-text-field__input {
+  .mdc-toolbar__title,
+  .mdc-drawer-item,
+  .mdc-card__title,
+  .mdc-button,
+  .mdc-text-field__input {
     font-family: $font-stack !important;
   }
 
@@ -63,7 +66,6 @@ body {
     .mdc-card__title {
       color: $mdc-theme-text-primary-on-primary;
     }
-  } 
+  }
 }
-   
 </style>
