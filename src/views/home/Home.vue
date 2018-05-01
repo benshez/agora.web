@@ -1,16 +1,13 @@
 <template>
 	<mdc-layout-grid class="content">
 		<mdc-layout-cell span=12>
-      About
+      Home
 		</mdc-layout-cell>
   </mdc-layout-grid>
 </template>
-
 <script>
 export default {
-  name: 'AboutView'
+  name: 'Home'
 };
 </script>
-<style scoped>
 
-</style>

@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import LoginComponent from '../components/user/LoginComponent.vue';
-import RegisterComponent from '../components/user/RegisterComponent.vue';
-import ForgotPasswordComponent from '../components/user/ForgotPasswordComponent.vue';
+import LoginComponent from '../../components/user/LoginComponent.vue';
+import RegisterComponent from '../../components/user/RegisterComponent.vue';
+import ForgotPasswordComponent from '../../components/user/ForgotPasswordComponent.vue';
 
 export default {
-  name: 'LoginRegister',
+  name: 'Login',
   components: {
     LoginComponent,
     RegisterComponent,

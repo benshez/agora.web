@@ -45,6 +45,7 @@ body {
     font-family: $font-stack !important;
   }
 }
+
 .mdc-typography,
 .mdc-typography--comfortaa {
   font-family: $font-stack !important;
@@ -57,6 +58,13 @@ body {
     font-family: $font-stack !important;
   }
 
+  .mdc-button {
+    background-color: $mdc-theme-primary;
+    color: $mdc-theme-text-primary-on-primary;
+    text-transform: capitalize;
+    font-weight: 900;
+  }
+
   .mdc-drawer-item {
     font-weight: 900;
   }
@@ -66,6 +74,35 @@ body {
     .mdc-card__title {
       color: $mdc-theme-text-primary-on-primary;
     }
+  }
+
+  .mdc-textfield-wrapper {
+    width: 100%;
+  }
+
+  .mdl-card__secondary {
+    padding: 1rem 1rem 0 1rem;
+  }
+  @media (min-width: 840px) {
+    .mdc-layout-cell:first-child {
+      grid-column-start: 5;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .mdc-layout-grid {
+      padding: 0.5rem;
+    }
+  }
+
+  .error-message {
+    text-align: left;
+    word-break: break-all;
+    color: #d50000;
+  }
+
+  .gutter-left {
+    margin-left: 0.5rem;
   }
 }
 </style>
