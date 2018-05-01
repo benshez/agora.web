@@ -10,8 +10,8 @@
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true v-on:click="onRegister()">Register</mdc-card-action-button>
-            <mdc-card-action-button :raised=true>Forgot Password</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('register-component')">Register</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('forgot-password-component')">Forgot Password</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
             <mdc-card-action-button :raised=true v-on:click="getUser()">Login</mdc-card-action-button>
@@ -52,8 +52,8 @@ export default {
         });
       });
     },
-    onRegister() {
-      this.$emit('clicked', 'register-component');
+    onNavigate(component) {
+      this.$emit('clicked', component);
     }
   },
   computed: {

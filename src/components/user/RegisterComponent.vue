@@ -11,8 +11,8 @@
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true v-on:click="onLogin()">Login</mdc-card-action-button>
-            <mdc-card-action-button :raised=true>Forgot Password</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('login-component')">Login</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('forgot-password-component')">Forgot Password</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
             <mdc-card-action-button :raised=true @click="setUser()">Register</mdc-card-action-button>
@@ -42,8 +42,8 @@ export default {
     doValidateUsername() {},
     doValidatePassword() {},
     setUser() {},
-    onLogin() {
-      this.$emit('clicked', 'login-component');
+    onNavigate(component) {
+      this.$emit('clicked', component);
     }
   },
   computed: {}

@@ -9,12 +9,14 @@
 <script>
 import LoginComponent from '../components/user/LoginComponent.vue';
 import RegisterComponent from '../components/user/RegisterComponent.vue';
+import ForgotPasswordComponent from '../components/user/ForgotPasswordComponent.vue';
 
 export default {
   name: 'LoginRegister',
   components: {
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotPasswordComponent
   },
   data() {
     return {
