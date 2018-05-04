@@ -14,10 +14,12 @@
 		</mdc-toolbar-row>
 	</mdc-toolbar>
 </template>
-<script>
+<script lang='ts'>
+
 export default {
   name: 'ToolbarComponent'
 };
+
 </script>
 
 <style scoped>

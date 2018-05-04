@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script lang="js" scoped>
+<script lang="ts" scoped>
 import DrawerComponent from '../components/navigation/DrawerComponent.vue';
 import ToolbarComponent from '../components/navigation/ToolbarComponent.vue';
 

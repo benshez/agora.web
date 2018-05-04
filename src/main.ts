@@ -2,20 +2,21 @@ import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 import VueMDCAdapter from 'vue-mdc-adapter';
 import App from './views/App.vue';
-import { routes } from './router';
-import { VueLodash } from './common/system/utilities/vue-lodash';
 import store from './store';
-import 'vue-mdc-adapter/dist/vue-mdc-adapter.css';
+
 import { I18nResolver } from 'i18n-ts';
-import { i18n } from './common/language';
+import { AgoraI18n } from './common/system/utilities/AgoraI18n';
+import { routes } from './router';
+import { AgoraLodash } from './common/system/utilities/AgoraLodash';
 
-const messages = new I18nResolver(i18n, 'en').translation;
+import 'vue-mdc-adapter/dist/vue-mdc-adapter.css';
 
-console.log(messages.hello);
-
-Vue.use(VueLodash);
+Vue.use(AgoraLodash);
 Vue.use(VeeValidate);
 Vue.use(VueMDCAdapter);
+Vue.use(AgoraI18n);
+//const messages = new I18nResolver(this.$i18n, 'en').translation;
+
 
 new Vue({
   el: '#app',
