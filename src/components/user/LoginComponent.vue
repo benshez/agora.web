@@ -2,7 +2,7 @@
 	<mdc-layout-grid class="content">
 		<mdc-layout-cell span=4>
       <mdc-card outlined>
-        <mdc-card-header title="User Login" primary></mdc-card-header>
+        <mdc-card-header :title="language.UserLoginTitle" primary></mdc-card-header>
         <div class="mdl-card__secondary">
           <mdc-card-subtitle><b class="mdl-color-text--accent error-message">{{message}}</b></mdc-card-subtitle>
           <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="'Username'" v-model="Username" id="Username" name="Username" />
@@ -10,11 +10,11 @@
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true v-on:click="onNavigate('register-component')">Register</mdc-card-action-button>
-            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">Forgot Password</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('register-component')">{{language.RegisterButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">{{language.ForgotPasswordButtonText}}</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
-            <mdc-card-action-button :raised=true v-on:click="getUser()">Login</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="getUser()">{{language.LoginButtonText}}</mdc-card-action-button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -63,6 +63,9 @@ export default {
       },
       message: (state: IRootState) => {
         return state.user.message;
+      },
+      language: (state: IRootState) => {
+        return state.language;
       }
     })
   }
