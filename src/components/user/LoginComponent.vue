@@ -65,6 +65,7 @@ export default {
         return state.user.message;
       },
       language: (state: IRootState) => {
+        debugger;
         return state.language;
       }
     })

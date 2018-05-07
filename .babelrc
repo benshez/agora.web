@@ -7,5 +7,17 @@
       }
     ],
     "babel-preset-stage-3"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "~": "/",
+        "@common/*": "common/*",
+        "@components/*": "components/*",
+        "@store/*": "store/*",
+        "@router/*": "router/*"
+      }
+    }]
   ]
 }

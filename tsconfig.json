@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmitHelpers": false,
@@ -9,9 +10,14 @@
     "esModuleInterop": true,
     "noEmitOnError": true,
     "lib": ["es6", "dom"],
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["./node_modules/tns-core-modules/*", "./node_modules/*"]
+      "node_modules/*": ["./node_modules/*"],
+      "tns-core-modules/*": ["./node_modules/tns-core-modules/*"],
+      "@common/*": ["common/*"],
+      "@components/*": ["components/*"],
+      "@store/*": ["store/*"],
+      "@router/*": ["outer/*"]
     }
   },
   "exclude": ["node_modules", "platforms"]

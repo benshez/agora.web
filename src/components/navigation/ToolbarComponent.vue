@@ -2,24 +2,23 @@
 	<mdc-toolbar waterfall>
 		<mdc-toolbar-row>
 			<mdc-toolbar-section align-start >
-			<mdc-toolbar-menu-icon event="toggle-drawer"></mdc-toolbar-menu-icon>
-			<mdc-toolbar-title>Agora</mdc-toolbar-title>
+        <mdc-toolbar-menu-icon event="toggle-drawer"></mdc-toolbar-menu-icon>
+        <mdc-toolbar-title>Agora</mdc-toolbar-title>
 			</mdc-toolbar-section>
 			<mdc-toolbar-section align-end>
-			<mdc-toolbar-icon event="show-help" icon="help"
-				href="https://stasson.github.io/vue-mdc-adapter/#/docs/getting-started"
-				target="_blank"
-			></mdc-toolbar-icon>
+        <menu-component />
 			</mdc-toolbar-section>
 		</mdc-toolbar-row>
 	</mdc-toolbar>
 </template>
 <script lang='ts'>
-
+import MenuComponent from './MenuComponent.vue';
 export default {
-  name: 'ToolbarComponent'
+  name: 'ToolbarComponent',
+  components: {
+    MenuComponent
+  }
 };
-
 </script>
 
 <style scoped>
