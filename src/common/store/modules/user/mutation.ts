@@ -1,5 +1,7 @@
 import { MutationTree } from 'vuex';
-import { IUser, mutationTypes } from '../../../';
+import * as mutationTypes from '../../types';
+import { IUser } from '../../../interfaces/user/IUser';
+import { IRootState } from '../../../interfaces/store/IRootState';
 
 export const mutations: MutationTree<IUser> = {
   [mutationTypes.GET_USER_BY_EMAIL](state: IUser, user: IUser) {

@@ -1,4 +1,4 @@
-import { IUser } from '../';
+import { IUser } from './IUser';
 
 export interface IUserState {
   UserByUserName: { [username: string]: IUser };

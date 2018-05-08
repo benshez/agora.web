@@ -26,7 +26,9 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { store, mutationTypes, IRootState } from '../../common/';
+import { IRootState } from '../../common/';
+import * as mutationTypes from '../../common/store/types';
+import store from '../../store';
 
 export default {
   name: 'LoginComponent',

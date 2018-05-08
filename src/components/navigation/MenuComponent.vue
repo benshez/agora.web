@@ -12,11 +12,11 @@
 </template>
 
 <script lang='ts'>
-import { i18n, store } from '../../common';
+import { i18n } from '../../common';
 import { mapState, mapMutations } from 'vuex';
 // import { i18n } from '~common/language';
 import * as mutationTypes from '~common/store/types';
-// import store from '~store';
+import store from '~store';
 
 export default {
   name: 'MenuComponent',

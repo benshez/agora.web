@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { store, mutationTypes, IRootState } from '../../common/';
+import { IRootState } from '../../common/';
 
 export default {
   name: 'ForgotPasswordComponent',

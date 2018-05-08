@@ -1,18 +1,17 @@
-import { enAU, af } from '../';
+import { enAU } from './en-AU';
+import { af } from './af';
 
-const LanguageCodes = {
+export const LanguageCodes = {
   'en-AU': 'English Australia',
   af: 'Afrikaans'
 };
 
-const Languages = {
+export const Languages = {
   'en-AU': enAU,
   af: af
 };
 
-const i18n = {
+export const i18n = {
   ...Languages,
   default: 'en-AU'
 };
-
-export { LanguageCodes, Languages, i18n };

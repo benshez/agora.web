@@ -11,13 +11,11 @@ import { enAU } from './language/en-AU';
 import { af } from './language/af';
 import { LanguageCodes, Languages, i18n } from './language';
 import { BaseService, UserService } from './services';
-import { user, language, mutationTypes, store } from './store';
 import {
   IApplicationRoutes,
   IAppSettings,
   IMapBoxStyles,
   IMapBoxSettings,
-  AgoraConfiguration,
   EventBus,
   IAPIKeys,
   AgoraPrivateConfiguration
@@ -39,15 +37,10 @@ export {
   i18n,
   BaseService,
   UserService,
-  user,
-  language,
-  mutationTypes,
-  store,
   IApplicationRoutes,
   IAppSettings,
   IMapBoxStyles,
   IMapBoxSettings,
-  AgoraConfiguration,
   EventBus,
   IAPIKeys,
   AgoraPrivateConfiguration,
