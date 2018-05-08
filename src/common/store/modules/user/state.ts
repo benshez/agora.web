@@ -1,4 +1,4 @@
-import { IUser } from '../../../interfaces/user/IUser';
+import { IUser } from '../../../';
 
 export const state: IUser = {
   id: null,

@@ -2,13 +2,12 @@ import { AxiosResponse, AxiosError } from 'axios';
 import { ActionTree } from 'vuex';
 import {
   IUser,
-  IUserByName,
-  IUserByEmail
-} from '../../../interfaces/user/IUser';
-import { IUserState } from '../../../interfaces/user/IUserState';
-import { UserService } from '../../../services/user/UserService';
-import { IRootState } from '../../../interfaces/store/IRootState';
-import * as mutationTypes from '../../types';
+  IUserByEmail,
+  IUserState,
+  UserService,
+  IRootState,
+  mutationTypes
+} from '../../../';
 import { state } from './state';
 
 export const actions: ActionTree<IUser, IRootState> = {

@@ -1,5 +1,4 @@
-import { ILanguage } from '../../../interfaces/language/ILanguage';
-import { Languages } from '../../../language';
+import { ILanguage, Languages } from '../../../';
 
 export const state: ILanguage = {
   ...Languages

@@ -1,10 +1,12 @@
 <template>
   <mdc-layout-grid class="content">
-		<mdc-layout-cell span=4>
+    <mdc-layout-cell span=4>
       <mdc-card outlined>
         <mdc-card-header title="Forgot Password" primary></mdc-card-header>
         <div class="mdl-card__secondary">
-          <mdc-card-subtitle><b class="mdl-color-text--accent error-message">{{message}}</b></mdc-card-subtitle>
+          <mdc-card-subtitle>
+            <b class="mdl-color-text--accent error-message">{{message}}</b>
+          </mdc-card-subtitle>
           <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="'Email'" v-model="Username" id="Email" name="Email" />
         </div>
         <mdc-card-actions>
@@ -17,15 +19,13 @@
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
-		</mdc-layout-cell>
+    </mdc-layout-cell>
   </mdc-layout-grid>
 </template>
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import store from '../../common/store';
-import * as mutationTypes from '../../common/store/types';
-import { IRootState } from '../../common/interfaces/store/IRootState';
+import { store, mutationTypes, IRootState } from '../../common/';
 
 export default {
   name: 'ForgotPasswordComponent',

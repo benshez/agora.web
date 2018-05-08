@@ -1,15 +1,6 @@
-import Vue from 'vue';
-import Vuex, { StoreOptions } from 'vuex';
 import { user } from './modules/user';
 import { language } from './modules/language';
-import { IRootState } from '../interfaces/store/IRootState';
-import { AgoraConfiguration } from '../system/constants/AgoraConfiguration';
+import * as mutationTypes from './modules/types';
+import store from './modules';
 
-Vue.use(Vuex);
-
-const store: StoreOptions<IRootState> = {
-  modules: { user, language },
-  strict: AgoraConfiguration.APP_SETTINGS.STORE_STRICT_MODE
-};
-
-export default new Vuex.Store<IRootState>(store);
+export { user, language, mutationTypes, store };

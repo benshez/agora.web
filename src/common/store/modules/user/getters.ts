@@ -1,5 +1,4 @@
 import { GetterTree } from 'vuex';
-import { IRootState } from '../../../interfaces/store/IRootState';
-import { IUser } from '../../../interfaces/user/IUser';
+import { IRootState, IUser } from '../../../';
 
 export const getters: GetterTree<IUser, IRootState> = {};

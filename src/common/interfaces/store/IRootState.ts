@@ -1,6 +1,4 @@
-import { IUserState } from '../user/IUserState';
-import { IUser } from '../user/IUser';
-import { ILanguage } from '../language/ILanguage';
+import { IUser, ILanguage } from '../';
 
 export interface IRootState {
   user: IUser;

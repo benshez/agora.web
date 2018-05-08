@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import { user, language, IRootState } from '../common/';
-import { AgoraConfiguration } from '../common/system';
+import { user } from './user';
+import { language } from './language';
+import { IRootState } from '../../interfaces/store/IRootState';
+import { AgoraConfiguration } from '../../system/constants/AgoraConfiguration';
+
 Vue.use(Vuex);
 
 const store: StoreOptions<IRootState> = {

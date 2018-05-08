@@ -1,10 +1,10 @@
 <template>
-  <div class="mdc-typography--comfortaa">
+  <div class="mdc-typography--agora">
     <mdc-layout-app>
-      <toolbar-component slot="toolbar"/>
-		  <drawer-component slot="drawer"/>
+      <toolbar-component slot="toolbar" />
+      <drawer-component slot="drawer" />
       <div style="display:none">
-      <mdc-linear-progress indeterminate/>
+        <mdc-linear-progress indeterminate/>
       </div>
 
       <main>
@@ -28,12 +28,13 @@ export default {
 </script>
 
 <style lang="scss">
-$font-stack: 'Comfortaa', Helvetica, Arial, sans-serif;
+$font-stack: 'Questrial', Helvetica, Arial, sans-serif;
 $mdc-theme-primary: #6200ee;
 $mdc-theme-text-primary-on-primary: white;
 
 html {
   height: 100%;
+  font-size: 1em;
 }
 
 body {
@@ -43,30 +44,40 @@ body {
 
   .content {
     font-family: $font-stack !important;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1rem;
   }
 }
 
 .mdc-typography,
-.mdc-typography--comfortaa {
+.mdc-typography--agora {
   font-family: $font-stack !important;
-
+  word-spacing: 0.01em;
   .mdc-toolbar__title,
-  .mdc-drawer-item,
   .mdc-card__title,
+  .mdc-drawer-item,
+  .mdc-menu-item,
   .mdc-button,
   .mdc-text-field__input {
     font-family: $font-stack !important;
+  }
+
+  .mdc-drawer-item,
+  .mdc-menu-item,
+  .mdc-button,
+  .mdc-text-field__input {
+    font-size: 1rem;
   }
 
   .mdc-button {
     background-color: $mdc-theme-primary;
     color: $mdc-theme-text-primary-on-primary;
     text-transform: capitalize;
-    font-weight: 900;
+    font-weight: 400;
   }
 
   .mdc-drawer-item {
-    font-weight: 900;
+    font-weight: 400;
   }
 
   .mdc-card__primary {

@@ -9,15 +9,16 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noEmitOnError": true,
+    "outDir": "public/assets/js",
     "lib": ["es6", "dom"],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "node_modules/*": ["./node_modules/*"],
       "tns-core-modules/*": ["./node_modules/tns-core-modules/*"],
-      "@common/*": ["common/*"],
-      "@components/*": ["components/*"],
-      "@store/*": ["store/*"],
-      "@router/*": ["outer/*"]
+      "~common/*": ["src/common/*"],
+      "~components/*": ["src/components/*"],
+      "~store/*": ["src/store/*"],
+      "~router/*": ["src/outer/*"]
     }
   },
   "exclude": ["node_modules", "platforms"]

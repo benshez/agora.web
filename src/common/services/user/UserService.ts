@@ -1,10 +1,5 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
-import { ActionContext, Store } from 'vuex';
-import { IUser, IUserByName, IUserByEmail } from '../../interfaces/user/IUser';
-import { IUserState } from '../../interfaces/user/IUserState';
-import { IRootState } from '../../interfaces/store/IRootState';
-import { AgoraConfiguration } from '../../system/constants/AgoraConfiguration';
-import BaseService from '../BaseService';
+import axios, { AxiosRequestConfig } from 'axios';
+import { IUser, IUserByEmail, AgoraConfiguration, BaseService } from '../../';
 
 export class UserService extends BaseService {
   private user: IUser;
