@@ -1,5 +1,5 @@
 <template>
-  <mdc-layout-grid class="content">
+  <mdc-layout-grid class="content content-centered">
     <mdc-layout-cell span=4>
       <mdc-card outlined>
         <mdc-card-header title="Forgot Password" primary></mdc-card-header>
@@ -33,7 +33,7 @@ export default {
     return {
       Username: '',
       Password: '',
-      message: ''
+      message: '',
     };
   },
   methods: {
@@ -42,9 +42,9 @@ export default {
     setUser() {},
     onNavigate(component) {
       this.$emit('clicked', component);
-    }
+    },
   },
-  computed: {}
+  computed: {},
 };
 </script>
 

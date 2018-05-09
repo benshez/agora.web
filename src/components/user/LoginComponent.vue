@@ -1,5 +1,5 @@
 <template>
-  <mdc-layout-grid class="content">
+  <mdc-layout-grid class="content content-centered">
     <mdc-layout-cell span=4>
       <mdc-card outlined>
         <mdc-card-header :title="language.UserLoginTitle" primary></mdc-card-header>
@@ -27,7 +27,7 @@
 <script lang="ts">
 import { mapState } from 'vuex';
 import { IRootState } from '../../common/';
-import * as mutationTypes from '../../common/store/types';
+import * as mutationTypes from '../../common/store/modules/types';
 import store from '../../store';
 
 export default {
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       Username: '',
-      Password: ''
+      Password: '',
     };
   },
   methods: {
@@ -50,13 +50,13 @@ export default {
         if (!result) return;
         store.dispatch(`user/${mutationTypes.GET_USER_BY_EMAIL}`, {
           email: this.Username,
-          password: this.Password
+          password: this.Password,
         });
       });
     },
     onNavigate(component) {
       this.$emit('clicked', component);
-    }
+    },
   },
   computed: {
     ...mapState({
@@ -68,9 +68,9 @@ export default {
       },
       language: (state: IRootState) => {
         return state.language;
-      }
-    })
-  }
+      },
+    }),
+  },
 };
 </script>
 

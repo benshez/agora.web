@@ -1,17 +1,19 @@
 import { enAU } from './en-AU';
 import { af } from './af';
 
+const DEFAULT_LANGUAGE = 'en-AU';
+
 export const LanguageCodes = {
-  'en-AU': 'English Australia',
+  DEFAULT_LANGUAGE: 'English Australia',
   af: 'Afrikaans'
 };
 
 export const Languages = {
   'en-AU': enAU,
-  af: af
+  'af': af
 };
 
 export const i18n = {
   ...Languages,
-  default: 'en-AU'
+  default: DEFAULT_LANGUAGE
 };

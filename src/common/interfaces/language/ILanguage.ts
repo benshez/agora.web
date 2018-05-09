@@ -1,6 +1,6 @@
 import { I18n } from 'i18n-ts';
 
-export interface IMessages {
+export interface ILanguage {
   AppName: string;
   AppNameUpperCase: string;
   UserRegistrationTitle: string;
@@ -9,9 +9,4 @@ export interface IMessages {
   RegisterButtonText: string;
   ForgotPasswordButtonText: string;
   Greeting: Function;
-}
-
-export interface ILanguage {
-  'en-AU': IMessages;
-  af: IMessages;
 }

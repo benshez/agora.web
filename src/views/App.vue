@@ -22,8 +22,8 @@ export default {
   name: 'app',
   components: {
     DrawerComponent,
-    ToolbarComponent
-  }
+    ToolbarComponent,
+  },
 };
 </script>
 
@@ -95,14 +95,18 @@ body {
     padding: 1rem 1rem 0 1rem;
   }
   @media (min-width: 840px) {
-    .mdc-layout-cell:first-child {
-      grid-column-start: 5;
+    .content-centered {
+      .mdc-layout-cell:first-child {
+        grid-column-start: 5;
+      }
     }
   }
 
   @media (max-width: 479px) {
-    .mdc-layout-grid {
-      padding: 0.5rem;
+    .content-centered {
+      .mdc-layout-grid {
+        padding: 0.5rem;
+      }
     }
   }
 
