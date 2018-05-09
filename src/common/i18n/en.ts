@@ -1,7 +1,7 @@
 export const en = {
   AppName: 'Agora',
   AppNameUpperCase: 'AGORA',
-  UserRegistrationTitle: 'User Registratie',
+  UserRegistrationTitle: 'User Registration',
   UserLoginTitle: 'User Login',
   LoginButtonText: 'Login',
   RegisterButtonText: 'Register',

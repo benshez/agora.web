@@ -10,3 +10,14 @@ export interface ILanguage {
   ForgotPasswordButtonText: string;
   Greeting: Function;
 }
+
+export interface ILanguages {
+  key: string;
+  description: string;
+  translations: ILanguage;
+}
+
+// export interface ILanguage {
+//   'en-AU': IMessages;
+//   af: IMessages;
+// }

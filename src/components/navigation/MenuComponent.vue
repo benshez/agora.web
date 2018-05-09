@@ -13,8 +13,9 @@
 
 <script lang='ts'>
 import { mapState, mapMutations } from 'vuex';
-import { i18n } from '../../common';
+import { LanguageService } from '../../common/services/i18n/LanguageService';
 import * as mutationTypes from '../../common/store/modules/types';
+import { ILanguages } from '../../common/interfaces/i18n/ILanguage';
 import store from '../../store';
 
 export default {
@@ -22,6 +23,7 @@ export default {
   data() {
     return {
       open: false,
+      languages: []
     };
   },
   methods: {
@@ -39,10 +41,15 @@ export default {
     onToggle() {
       this.open = !this.open;
     },
+    getLanguages() {
+      this.languages = new LanguageService().GET_LANGUAGES();
+    }
   },
   created() {
-    store.dispatch(`language/${mutationTypes.GET_LANGUAGE}`, i18n.default);
-  },
+    let DEFAULT_LANGUAGE = new LanguageService().GET_DEFAULT_LANGUAGE();
+    store.dispatch(`language/${mutationTypes.GET_LANGUAGE}`, DEFAULT_LANGUAGE);
+    this.getLanguages();
+  }
 };
 </script>
 
