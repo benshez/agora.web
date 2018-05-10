@@ -16,6 +16,8 @@ Vue.use(AgoraLodash);
 Vue.use(VeeValidate);
 Vue.use(VueMDCAdapter);
 
+Vue.prototype.$eventBus = new Vue();
+
 new Vue({
   el: '#app',
   router: routes,
@@ -24,8 +26,8 @@ new Vue({
     ...mapState({
       language: (state: IRootState) => {
         return state.language;
-      },
-    }),
+      }
+    })
   },
   render: h => h(App)
 });

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       open: false,
-      languages: [] as Array<ILanguage>,
+      languages: [] as Array<ILanguage>
     };
   },
   methods: {
@@ -28,6 +28,7 @@ export default {
         `language/${mutationTypes.UPDATE_LANGUAGE}`,
         selected.item.id
       );
+      this.$eventBus.$emit('UPDATE_LANGUAGE', selected.item.id);
       this.onToggle();
     },
     onOpen() {
@@ -38,14 +39,14 @@ export default {
     },
     getLanguages() {
       this.languages = new LanguageService().GET_LANGUAGES();
-    },
+    }
   },
   created() {
     let DEFAULT_LANGUAGE = new LanguageService().GET_DEFAULT_LANGUAGE();
     store.dispatch(`language/${mutationTypes.GET_LANGUAGE}`, DEFAULT_LANGUAGE);
     this.getLanguages();
   },
-  computed: {},
+  computed: {}
 };
 </script>
 

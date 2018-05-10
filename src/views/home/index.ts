@@ -5,6 +5,7 @@ export const HomeRoute: RouteConfig = {
   path: '/',
   component: Home,
   meta: {
+    translationKey: 'HomeMenuItemText',
     description: 'Home'
   }
 };

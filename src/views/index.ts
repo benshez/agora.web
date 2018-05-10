@@ -1,5 +1,4 @@
 import { RouteConfig } from 'vue-router';
-
 import { AboutRoute } from './about';
 import { HomeRoute } from './home';
 import { LoginRoute } from './login';
