@@ -1,12 +1,8 @@
 <template>
   <mdc-menu-anchor class="agora-languages">
-    <mdc-button raised @click="onOpen">Open Menu</mdc-button>
+    <mdc-button raised @click="onOpen">{{this.$store.state.language.LanguageMenuText}}</mdc-button>
     <mdc-menu v-model="open" @select="onSelect" v-bind:class="{ open: open }">
-      <mdc-menu-item data-v="af">Afrikaans</mdc-menu-item>
-      <mdc-menu-item data-v="en">Another Menu Item</mdc-menu-item>
-      <mdc-menu-item disabled>Disabled Menu Item</mdc-menu-item>
-      <mdc-menu-divider>Another Menu Item</mdc-menu-divider>
-      <mdc-menu-item>Parted Menu Item</mdc-menu-item>
+      <mdc-menu-item v-for="lang in languages" v-bind:key="lang.key" v-bind:id="lang.key">{{lang.description}}</mdc-menu-item>
     </mdc-menu>
   </mdc-menu-anchor>
 </template>
@@ -15,7 +11,7 @@
 import { mapState, mapMutations } from 'vuex';
 import { LanguageService } from '../../common/services/i18n/LanguageService';
 import * as mutationTypes from '../../common/store/modules/types';
-import { ILanguages } from '../../common/interfaces/i18n/ILanguage';
+import { ILanguage } from '../../common/interfaces/i18n/ILanguage';
 import store from '../../store';
 
 export default {
@@ -23,15 +19,14 @@ export default {
   data() {
     return {
       open: false,
-      languages: []
+      languages: [] as Array<ILanguage>,
     };
   },
   methods: {
-    //...mapMutations([`language/${mutationTypes.GET_LANGUAGE}`]),
     onSelect(selected) {
       store.dispatch(
         `language/${mutationTypes.UPDATE_LANGUAGE}`,
-        selected.item.dataset.v
+        selected.item.id
       );
       this.onToggle();
     },
@@ -43,13 +38,14 @@ export default {
     },
     getLanguages() {
       this.languages = new LanguageService().GET_LANGUAGES();
-    }
+    },
   },
   created() {
     let DEFAULT_LANGUAGE = new LanguageService().GET_DEFAULT_LANGUAGE();
     store.dispatch(`language/${mutationTypes.GET_LANGUAGE}`, DEFAULT_LANGUAGE);
     this.getLanguages();
-  }
+  },
+  computed: {},
 };
 </script>
 

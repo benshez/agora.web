@@ -2,22 +2,22 @@
   <mdc-layout-grid class="content content-centered">
     <mdc-layout-cell span=4>
       <mdc-card outlined>
-        <mdc-card-header title="User Registration" primary></mdc-card-header>
+        <mdc-card-header :title="this.$store.state.language.UserRegistrationTitle" primary></mdc-card-header>
         <div class="mdl-card__secondary">
           <mdc-card-subtitle>
             <b class="mdl-color-text--accent error-message">{{message}}</b>
           </mdc-card-subtitle>
-          <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="'Username'" v-model="Username" id="Username" name="Username" />
-          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="'Password'" v-model="Password" id="Password" name="Password" />
-          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="'Confirm Password'" v-model="Password" id="ConfirmPassword" name="ConfirmPassword" />
+          <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="this.$store.state.language.UserNameText" v-model="Username" id="Username" name="Username" />
+          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="this.$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
+          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="this.$store.state.language.UserPasswordConfirmText" v-model="Password" id="ConfirmPassword" name="ConfirmPassword" />
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true v-on:click="onNavigate('login-component')">Login</mdc-card-action-button>
-            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">Forgot Password</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('login-component')">{{this.$store.state.language.LoginButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">{{this.$store.state.language.ForgotPasswordButtonText}}</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
-            <mdc-card-action-button :raised=true @click="setUser()">Register</mdc-card-action-button>
+            <mdc-card-action-button :raised=true @click="setUser()">{{this.$store.state.language.RegisterButtonText}}</mdc-card-action-button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
