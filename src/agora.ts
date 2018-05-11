@@ -7,7 +7,7 @@ import store from './store';
 import { IRootState } from './common/modules/base/interfaces/IRootState';
 
 import { routes } from './router';
-import { AgoraLodash } from './common/system/utilities/AgoraLodash';
+import { AgoraLodash } from './common/modules/core/utilities/AgoraLodash';
 
 import 'vue-mdc-adapter/dist/vue-mdc-adapter.css';
 
