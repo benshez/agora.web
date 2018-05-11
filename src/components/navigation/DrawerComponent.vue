@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { IRootState } from '../../common/';
-import * as mutationTypes from '../../common/store/modules/types';
+import { IRootState } from '../../common/modules/base/interfaces/IRootState';
+import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 import store from '../../store';
 
 export default {

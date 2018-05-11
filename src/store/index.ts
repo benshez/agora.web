@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import { IRootState } from '../common/';
-import { user } from '../common/store/modules/user';
-import { routes } from '../common/store/modules/routes';
-import { language } from '../common/store/modules/i18n';
+import { IRootState } from '../common/modules/base/interfaces/IRootState';
+import { user } from '../common/modules/user/store';
+import { routes } from '../common/modules/routes/store';
+import { language } from '../common/modules/i18n/store';
 import { AgoraConfiguration } from '../common/system/constants/AgoraConfiguration';
 
 Vue.use(Vuex);
