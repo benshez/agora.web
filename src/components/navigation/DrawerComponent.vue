@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { IRootState } from '../../common/modules/base/interfaces/IRootState';
+import { IRootState } from '../../common/modules/base/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 import store from '../../store';
 

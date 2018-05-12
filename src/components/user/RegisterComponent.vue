@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { IRootState } from '../../common/modules/base/interfaces/IRootState';
+import { IRootState } from '../../common/modules/base/';
 
 export default {
   name: 'RegisterComponent',
@@ -35,7 +35,7 @@ export default {
     return {
       Username: '',
       Password: '',
-      message: '',
+      message: ''
     };
   },
   methods: {
@@ -44,9 +44,9 @@ export default {
     setUser() {},
     onNavigate(component) {
       this.$emit('clicked', component);
-    },
+    }
   },
-  computed: {},
+  computed: {}
 };
 </script>
 

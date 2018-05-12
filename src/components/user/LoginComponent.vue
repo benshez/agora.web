@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex';
-import { IRootState } from '../../common/modules/base/interfaces/IRootState';
+import { IRootState } from '../../common/modules/base/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 import store from '../../store';
 
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       Username: '',
-      Password: '',
+      Password: ''
     };
   },
   methods: {
@@ -50,13 +50,13 @@ export default {
         if (!result) return;
         store.dispatch(`user/${mutationTypes.GET_USER_BY_EMAIL}`, {
           email: this.Username,
-          password: this.Password,
+          password: this.Password
         });
       });
     },
     onNavigate(component) {
       this.$emit('clicked', component);
-    },
+    }
   },
   computed: {
     ...mapState({
@@ -65,9 +65,9 @@ export default {
       },
       message: (state: IRootState) => {
         return state.user.message;
-      },
-    }),
-  },
+      }
+    })
+  }
 };
 </script>
 

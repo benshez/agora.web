@@ -9,9 +9,8 @@
 
 <script lang='ts'>
 import { mapState, mapMutations } from 'vuex';
-import { LanguageService } from '../../common/modules/i18n/services/LanguageService';
+import { LanguageService, ILanguage } from '../../common/modules/i18n/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
-import { ILanguage } from '../../common/modules/i18n/interfaces/ILanguage';
 import store from '../../store';
 
 export default {
