@@ -1,12 +1,12 @@
 import { RouteConfig } from 'vue-router';
-import { AboutRoute } from './about';
 import { HomeRoute } from './home';
+import { AboutRoute } from './about';
 import { LoginRoute } from './login';
 import { NotFoundRoute } from './error';
 
 export const AppRoutes: Array<RouteConfig> = [
-  AboutRoute,
   HomeRoute,
+  AboutRoute,
   LoginRoute,
   NotFoundRoute
 ];

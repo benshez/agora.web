@@ -3,10 +3,10 @@ import VeeValidate from 'vee-validate';
 import VueMDCAdapter from 'vue-mdc-adapter';
 import { mapState } from 'vuex';
 import App from './views/App.vue';
-import store from './store';
+import store from './modules/store';
 import { IRootState } from './common/modules/base/interfaces/IRootState';
 
-import { routes } from './router';
+import { routes } from './modules/router';
 import { AgoraLodash } from './common/modules/core/utilities/AgoraLodash';
 
 import 'vue-mdc-adapter/dist/vue-mdc-adapter.css';

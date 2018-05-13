@@ -1,6 +1,6 @@
 <template>
   <mdc-menu-anchor class="agora-languages">
-    <mdc-button raised @click="onOpen">{{this.$store.state.language.LanguageMenuText}}</mdc-button>
+    <mdc-button raised @click="onOpen">{{$store.state.language.LanguageMenuText}}</mdc-button>
     <mdc-menu v-model="open" @select="onSelect" v-bind:class="{ open: open }">
       <mdc-menu-item v-for="lang in languages" v-bind:key="lang.key" v-bind:id="lang.key">{{lang.description}}</mdc-menu-item>
     </mdc-menu>
@@ -11,7 +11,7 @@
 import { mapState, mapMutations } from 'vuex';
 import { LanguageService, ILanguage } from '../../common/modules/i18n/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
-import store from '../../store';
+import store from '../../modules/store';
 
 export default {
   name: 'MenuComponent',
@@ -27,7 +27,9 @@ export default {
         `language/${mutationTypes.UPDATE_LANGUAGE}`,
         selected.item.id
       );
-      this.$eventBus.$emit('UPDATE_LANGUAGE', selected.item.id);
+      const route = Object.assign({}, this.$route);
+      route.params.lang = selected.item.id;
+      this.$router.push(route);
       this.onToggle();
     },
     onOpen() {

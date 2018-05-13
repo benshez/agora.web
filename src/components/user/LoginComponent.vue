@@ -2,21 +2,21 @@
   <mdc-layout-grid class="content content-centered">
     <mdc-layout-cell span=4>
       <mdc-card outlined>
-        <mdc-card-header :title="this.$store.state.language.UserLoginTitle" primary></mdc-card-header>
+        <mdc-card-header :title="$store.state.language.UserLoginTitle" primary></mdc-card-header>
         <div class="mdl-card__secondary">
           <mdc-card-subtitle>
             <b class="mdl-color-text--accent error-message">{{message}}</b>
           </mdc-card-subtitle>
-          <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="this.$store.state.language.UserNameText" v-model="Username" id="Username" name="Username" />
-          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="this.$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
+          <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="$store.state.language.UserNameText" v-model="Username" id="Username" name="Username" />
+          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
-            <mdc-card-action-button :raised=true v-on:click="onNavigate('register-component')">{{this.$store.state.language.RegisterButtonText}}</mdc-card-action-button>
-            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">{{this.$store.state.language.ForgotPasswordButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="onNavigate('register-component')">{{$store.state.language.RegisterButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">{{$store.state.language.ForgotPasswordButtonText}}</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
-            <mdc-card-action-button :raised=true v-on:click="getUser()">{{this.$store.state.language.LoginButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button :raised=true v-on:click="getUser()">{{$store.state.language.LoginButtonText}}</mdc-card-action-button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -28,7 +28,7 @@
 import { mapState } from 'vuex';
 import { IRootState } from '../../common/modules/base/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
-import store from '../../store';
+import store from '../../modules/store';
 
 export default {
   name: 'LoginComponent',
