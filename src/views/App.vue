@@ -29,8 +29,10 @@ export default {
 
 <style lang="scss">
 $font-stack: 'Questrial', Helvetica, Arial, sans-serif;
-$mdc-theme-primary: #6200ee;
-$mdc-theme-text-primary-on-primary: white;
+:root {
+  --mdc-theme-primary: #205081;
+  --mdc-theme-text-primary-on-primary: white;
+}
 
 html {
   height: 100%;
@@ -70,8 +72,8 @@ body {
   }
 
   .mdc-button {
-    background-color: $mdc-theme-primary;
-    color: $mdc-theme-text-primary-on-primary;
+    background-color: --mdc-theme-primary;
+    color: --mdc-theme-text-primary-on-primary;
     text-transform: capitalize;
     font-weight: 400;
   }
@@ -81,9 +83,9 @@ body {
   }
 
   .mdc-card__primary {
-    background-color: $mdc-theme-primary;
+    background-color: --mdc-theme-primary;
     .mdc-card__title {
-      color: $mdc-theme-text-primary-on-primary;
+      color: --mdc-theme-text-primary-on-primary;
     }
   }
 
