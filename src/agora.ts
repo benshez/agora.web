@@ -8,6 +8,7 @@ import { IRootState } from './common/modules/base/interfaces/IRootState';
 
 import { routes } from './modules/router';
 import { AgoraLodash } from './common/modules/core/utilities/AgoraLodash';
+import { ConsoleService } from './modules/logging/';
 
 import 'vue-mdc-adapter/dist/vue-mdc-adapter.css';
 
@@ -16,6 +17,7 @@ Vue.use(VeeValidate);
 Vue.use(VueMDCAdapter);
 
 Vue.prototype.$eventBus = new Vue();
+Vue.prototype.$consoleService = new ConsoleService();
 
 new Vue({
   el: '#app',

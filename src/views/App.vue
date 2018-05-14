@@ -22,8 +22,8 @@ export default {
   name: 'app',
   components: {
     DrawerComponent,
-    ToolbarComponent,
-  },
+    ToolbarComponent
+  }
 };
 </script>
 
@@ -64,6 +64,12 @@ body {
     font-family: $font-stack !important;
   }
 
+  .mdc-card__title,
+  .mdc-toolbar__title,
+  .mdc-toolbar__menu-icon {
+    color: var(--mdc-theme-text-primary-on-primary);
+  }
+
   .mdc-drawer-item,
   .mdc-menu-item,
   .mdc-button,
@@ -72,8 +78,8 @@ body {
   }
 
   .mdc-button {
-    background-color: --mdc-theme-primary;
-    color: --mdc-theme-text-primary-on-primary;
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-text-primary-on-primary);
     text-transform: capitalize;
     font-weight: 400;
   }
@@ -83,9 +89,9 @@ body {
   }
 
   .mdc-card__primary {
-    background-color: --mdc-theme-primary;
+    background-color: var(--mdc-theme-primary);
     .mdc-card__title {
-      color: --mdc-theme-text-primary-on-primary;
+      color: var(--mdc-theme-text-primary-on-primary);
     }
   }
 

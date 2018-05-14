@@ -18,13 +18,14 @@ export default {
     RegisterComponent,
     ForgotPasswordComponent
   },
-  data() {
+  data () {
     return {
       dynamicComponent: 'login-component'
     };
   },
   methods: {
-    onToggle(arg) {
+    onToggle (arg) {
+      this.$consoleService.debug('dasdas');
       this.dynamicComponent = arg;
     }
   }
