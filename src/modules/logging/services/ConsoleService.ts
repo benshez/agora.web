@@ -5,6 +5,7 @@ export class ConsoleService implements IConsole {
     return;
   }
   public debug(_m: any): void {
+    debugger
     return;
   }
   public error(_m: any): void {

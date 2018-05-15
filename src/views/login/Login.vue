@@ -16,21 +16,22 @@ export default {
   components: {
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   },
-  data () {
+  data() {
     return {
-      dynamicComponent: 'login-component'
+      dynamicComponent: 'login-component',
     };
   },
   methods: {
-    onToggle (arg) {
-      this.$consoleService.debug('dasdas');
+    onToggle(arg) {
+      debugger;
+      this.$log.debug('dasdas');
+      this.$logService.console.debug('dasdas');
       this.dynamicComponent = arg;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
-
 </style>

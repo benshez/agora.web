@@ -1,7 +1,6 @@
 import * as _ from 'lodash';
-
 import { AgoraConfiguration } from '../../../common/modules/core/constants/AgoraConfiguration';
-import { LogTarget, LogLevel } from './LogTarget';
+import { LogTarget, LogLevel } from '../';
 
 export class LogService {
   constructor(private targets: LogTarget[]) {}
