@@ -18,17 +18,16 @@ export default {
     RegisterComponent,
     ForgotPasswordComponent,
   },
-  data() {
+  data () {
     return {
       dynamicComponent: 'login-component',
     };
   },
   methods: {
-    onToggle(arg) {
-      debugger;
-      this.$log.debug('dasdas');
-      this.$logService.console.debug('dasdas');
+    onToggle (arg) {
+      debugger
       this.dynamicComponent = arg;
+      this.$agoraConsole.debug(`Switched dynamicComponent to: ${arg}`);
     },
   },
 };

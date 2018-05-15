@@ -55,6 +55,7 @@ export default {
       });
     },
     onNavigate(component) {
+      //this.$agoraEventBus.$emit(this.$agoraConfig.APP_GLOBAL_EVENTS().TOGGLE_LOGIN_COMPONENTS, component);
       this.$emit('clicked', component);
     }
   },
@@ -72,5 +73,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

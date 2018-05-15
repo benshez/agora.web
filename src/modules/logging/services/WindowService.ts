@@ -1,5 +1,4 @@
 import { IWindow } from '../';
-
 export class WindowService implements IWindow {
   public navigator: any = {};
   public location: any = {};

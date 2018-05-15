@@ -1,15 +1,15 @@
 <template>
-	<mdc-toolbar waterfall>
-		<mdc-toolbar-row>
-			<mdc-toolbar-section align-start >
+  <mdc-toolbar waterfall>
+    <mdc-toolbar-row>
+      <mdc-toolbar-section align-start>
         <mdc-toolbar-menu-icon event="toggle-drawer"></mdc-toolbar-menu-icon>
-        <mdc-toolbar-title>Agora</mdc-toolbar-title>
-			</mdc-toolbar-section>
-			<mdc-toolbar-section align-end>
+        <mdc-toolbar-title>{{$agoraConfig.APP_SETTINGS.APP_NAME}}</mdc-toolbar-title>
+      </mdc-toolbar-section>
+      <mdc-toolbar-section align-end>
         <menu-component />
-			</mdc-toolbar-section>
-		</mdc-toolbar-row>
-	</mdc-toolbar>
+      </mdc-toolbar-section>
+    </mdc-toolbar-row>
+  </mdc-toolbar>
 </template>
 <script lang='ts'>
 import MenuComponent from './MenuComponent.vue';
