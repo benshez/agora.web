@@ -1,15 +1,18 @@
 <template>
   <mdc-layout-app>
     <keep-alive>
-      <component v-on:clicked="onToggle" v-bind:is="dynamicComponent"></component>
+      <component v-bind:is="component"></component>
     </keep-alive>
   </mdc-layout-app>
 </template>
 
-<script>
+<script lang="ts">
+import { mapState } from 'vuex';
 import LoginComponent from '../../components/user/LoginComponent.vue';
 import RegisterComponent from '../../components/user/RegisterComponent.vue';
 import ForgotPasswordComponent from '../../components/user/ForgotPasswordComponent.vue';
+import { IRootState } from '../../common/modules/base/';
+import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 
 export default {
   name: 'Login',
@@ -18,17 +21,22 @@ export default {
     RegisterComponent,
     ForgotPasswordComponent,
   },
-  data () {
-    return {
-      dynamicComponent: 'login-component',
-    };
+  methods: {},
+  created() {
+    this.$store.dispatch(
+      `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
+      {
+        name: '',
+        key: 'login-component',
+      }
+    );
   },
-  methods: {
-    onToggle (arg) {
-      debugger
-      this.dynamicComponent = arg;
-      this.$agoraConsole.debug(`Switched dynamicComponent to: ${arg}`);
-    },
+  computed: {
+    ...mapState({
+      component: (state: IRootState) => {
+        return state.dynamicComponent.key;
+      },
+    }),
   },
 };
 </script>

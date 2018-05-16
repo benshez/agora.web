@@ -28,6 +28,7 @@
 <script lang="ts">
 import { mapState } from 'vuex';
 import { IRootState } from '../../common/modules/base/';
+import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 
 export default {
   name: 'RegisterComponent',
@@ -35,7 +36,7 @@ export default {
     return {
       Username: '',
       Password: '',
-      message: ''
+      message: '',
     };
   },
   methods: {
@@ -43,13 +44,18 @@ export default {
     doValidatePassword() {},
     setUser() {},
     onNavigate(component) {
-      this.$emit('clicked', component);
-    }
+      this.$store.dispatch(
+        `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
+        {
+          name: '',
+          key: component,
+        }
+      );
+    },
   },
-  computed: {}
+  computed: {},
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>

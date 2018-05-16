@@ -8,5 +8,5 @@ export const mutations: MutationTree<IUser> = {
   },
   [mutationTypes.ADD_USER](state: IUser, user: IUser) {
     Object.assign(state, user);
-  }
+  },
 };
