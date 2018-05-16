@@ -9,7 +9,7 @@
           </mdc-card-subtitle>
           <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="$store.state.language.UserNameText" v-model="Username" id="Username" name="Username" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
-          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordConfirmText" v-model="Password" id="ConfirmPassword" name="ConfirmPassword" />
+          <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordConfirmText" v-model="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" />
         </div>
         <mdc-card-actions>
           <mdc-card-action-buttons>
@@ -36,24 +36,37 @@ export default {
     return {
       Username: '',
       Password: '',
-      message: '',
+      ConfirmPassword: '',
+      message: ''
     };
   },
   methods: {
-    doValidateUsername() {},
-    doValidatePassword() {},
-    setUser() {},
+    doValidateUsername() {
+      return !this.$validator.errors.has('Username');
+    },
+    doValidatePassword() {
+      return !this.$validator.errors.has('Password');
+    },
+    setUser() {
+      this.$validator.validateAll().then(result => {
+        if (!result) return;
+        this.$store.dispatch(`user/${mutationTypes.ADD_USER}`, {
+          email: this.Username,
+          password: this.Password
+        });
+      });
+    },
     onNavigate(component) {
       this.$store.dispatch(
         `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
         {
           name: '',
-          key: component,
+          key: component
         }
       );
-    },
+    }
   },
-  computed: {},
+  computed: {}
 };
 </script>
 
