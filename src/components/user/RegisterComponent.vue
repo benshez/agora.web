@@ -17,7 +17,7 @@
             <mdc-card-action-button class="gutter-left" :raised=true v-on:click="onNavigate('forgot-password-component')">{{$store.state.language.ForgotPasswordButtonText}}</mdc-card-action-button>
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
-            <mdc-card-action-button :raised=true @click="setUser()">{{$store.state.language.RegisterButtonText}}</mdc-card-action-button>
+            <mdc-card-action-button :raised=true @click="addUser()">{{$store.state.language.RegisterButtonText}}</mdc-card-action-button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -28,6 +28,8 @@
 <script lang="ts">
 import { mapState } from 'vuex';
 import { IRootState } from '../../common/modules/base/';
+import { IUser } from '../../common/modules/user';
+import { UserState } from '../../common/modules/user/';
 import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
 
 export default {
@@ -37,7 +39,7 @@ export default {
       Username: '',
       Password: '',
       ConfirmPassword: '',
-      message: ''
+      message: '',
     };
   },
   methods: {
@@ -45,15 +47,20 @@ export default {
       return !this.$validator.errors.has('Username');
     },
     doValidatePassword() {
-      return !this.$validator.errors.has('Password');
+      return !this.$validator.errors.has('Password') && this.doPasswordMatch();
     },
-    setUser() {
+    doPasswordMatch() {
+      return this.Password === this.ConfirmPassword;
+    },
+    addUser() {
       this.$validator.validateAll().then(result => {
-        if (!result) return;
-        this.$store.dispatch(`user/${mutationTypes.ADD_USER}`, {
-          email: this.Username,
-          password: this.Password
-        });
+        if (!result || !this.doPasswordMatch()) return;
+        let user: IUser = UserState;
+
+        user.email = this.Username;
+        user.password = this.Password;
+        debugger;
+        //this.$store.dispatch(`user/${mutationTypes.ADD_USER}`, user);
       });
     },
     onNavigate(component) {
@@ -61,12 +68,12 @@ export default {
         `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
         {
           name: '',
-          key: component
+          key: component,
         }
       );
-    }
+    },
   },
-  computed: {}
+  computed: {},
 };
 </script>
 
