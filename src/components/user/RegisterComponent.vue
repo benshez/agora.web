@@ -38,8 +38,7 @@ export default {
     return {
       Username: '',
       Password: '',
-      ConfirmPassword: '',
-      message: '',
+      ConfirmPassword: ''
     };
   },
   methods: {
@@ -55,12 +54,12 @@ export default {
     addUser() {
       this.$validator.validateAll().then(result => {
         if (!result || !this.doPasswordMatch()) return;
-        let user: IUser = UserState;
 
+        let user: IUser = UserState;
         user.email = this.Username;
         user.password = this.Password;
-        debugger;
-        //this.$store.dispatch(`user/${mutationTypes.ADD_USER}`, user);
+
+        this.$store.dispatch(`user/${mutationTypes.ADD_USER}`, user);
       });
     },
     onNavigate(component) {
@@ -68,12 +67,21 @@ export default {
         `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
         {
           name: '',
-          key: component,
+          key: component
         }
       );
-    },
+    }
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      error: (state: IRootState) => {
+        return state.user.error;
+      },
+      message: (state: IRootState) => {
+        return state.user.message;
+      }
+    })
+  }
 };
 </script>
 

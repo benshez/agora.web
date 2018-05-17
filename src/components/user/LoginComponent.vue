@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       Username: '',
-      Password: '',
+      Password: ''
     };
   },
   methods: {
@@ -50,7 +50,7 @@ export default {
         if (!result) return;
         store.dispatch(`user/${mutationTypes.GET_USER_BY_EMAIL}`, {
           email: this.Username,
-          password: this.Password,
+          password: this.Password
         });
       });
     },
@@ -59,10 +59,10 @@ export default {
         `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
         {
           name: '',
-          key: component,
+          key: component
         }
       );
-    },
+    }
   },
   computed: {
     ...mapState({
@@ -71,9 +71,9 @@ export default {
       },
       message: (state: IRootState) => {
         return state.user.message;
-      },
-    }),
-  },
+      }
+    })
+  }
 };
 </script>
 
