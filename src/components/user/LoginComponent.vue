@@ -5,7 +5,8 @@
         <mdc-card-header :title="$store.state.language.UserLoginTitle" primary></mdc-card-header>
         <div class="mdl-card__secondary">
           <mdc-card-subtitle>
-            <b class="mdl-color-text--accent error-message">{{message}}</b>
+            <b class="mdl-color-text--accent error-message" v-if="$store.state.user.username!=''">{{$store.state.language.Greeting($store.state.user.username + ' ' + $store.state.user.usersurname)}}</b>
+            <b class="mdl-color-text--accent error-message" v-if="$store.state.user.error!=''">{{message}}</b>
           </mdc-card-subtitle>
           <mdc-textfield v-validate="'required|email'" :type="'text'" :valid="doValidateUsername()" :required=true :label="$store.state.language.UserNameText" v-model="Username" id="Username" name="Username" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />

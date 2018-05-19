@@ -60,8 +60,28 @@ body {
   .mdc-drawer-item,
   .mdc-menu-item,
   .mdc-button,
-  .mdc-text-field__input {
+  .mdc-text-field__input,
+  .mdc-select,
+  .mdc-select option,
+  .mdc-select__label {
     font-family: $font-stack !important;
+  }
+
+  .mdc-select {
+    .option {
+      color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));
+    }
+  }
+
+  .mdc-select__label {
+    &:not(.mdc-select--disabled) {
+      color: rgba(0, 0, 0, 0.6);
+      font-weight: 100;
+    }
+    &.mdc-select__label--float-above {
+      font-family: $font-stack !important;
+      color: var(--mdc-theme-primary, #6200ee);
+    }
   }
 
   .mdc-card__title,
@@ -95,7 +115,8 @@ body {
     }
   }
 
-  .mdc-textfield-wrapper {
+  .mdc-textfield-wrapper,
+  .mdc-select {
     width: 100%;
   }
 
@@ -122,6 +143,9 @@ body {
     text-align: left;
     word-break: break-all;
     color: #d50000;
+    letter-spacing: -0.03rem;
+    font-weight: 700;
+    font-size: 0.7rem;
   }
 
   .gutter-left {
