@@ -10,7 +10,6 @@ export const actions: ActionTree<IUser, IRootState> = {
     new UserService()
       .GET_USER_BY_EMAIL(user)
       .then((response: AxiosResponse) => {
-        debugger;
         commit(mutationTypes.GET_USER_BY_EMAIL, JSON.parse(
           response.data
         ) as IUser);
@@ -41,7 +40,6 @@ export const actions: ActionTree<IUser, IRootState> = {
     new UserService()
       .GET_ALL_USER_ROLES()
       .then((response: AxiosResponse) => {
-        debugger;
         return response.data as IUserRoles;
       })
       .catch(error => {

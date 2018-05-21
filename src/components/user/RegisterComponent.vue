@@ -71,7 +71,6 @@ export default {
     },
     addUser() {
       this.$validator.validateAll().then(result => {
-        debugger;
         if (!result || !this.doPasswordMatch()) return;
 
         let user: IUser = UserState;
