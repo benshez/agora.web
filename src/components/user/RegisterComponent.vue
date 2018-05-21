@@ -17,6 +17,7 @@
               </mdc-select>
             </div>
           </div>
+          <mdc-textfield :type="'text'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserABNText" v-model="ABN" id="ABN" name="ABN" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordConfirmText" v-model="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" />
         </div>
@@ -56,6 +57,7 @@ export default {
       Password: '',
       UserRole: '',
       UserRoles: [],
+      ABN: '',
       ConfirmPassword: ''
     };
   },
@@ -77,6 +79,7 @@ export default {
         user.username = this.Username;
         user.usersurname = this.UserSurname;
         user.role = this.UserRole;
+        user.abn = this.ABN;
         user.email = this.UserEmail;
         user.password = this.Password;
 
