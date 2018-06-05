@@ -17,7 +17,7 @@
               </mdc-select>
             </div>
           </div>
-          <mdc-textfield :type="'text'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserABNText" v-model="ABN" id="ABN" name="ABN" />
+          <mdc-textfield :type="'text'" :label="$store.state.language.UserABNText" v-model="ABN" id="ABN" name="ABN" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordText" v-model="Password" id="Password" name="Password" />
           <mdc-textfield v-validate="'required'" :type="'password'" :valid="doValidatePassword()" :required=true :label="$store.state.language.UserPasswordConfirmText" v-model="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" />
         </div>
@@ -36,37 +36,37 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex';
-import { IRootState } from '../../common/modules/base/';
+import { mapState } from "vuex";
+import { IRootState } from "../../common/modules/base/";
 import {
   IUser,
   IUserRoles,
   UserState,
   UserService
-} from '../../common/modules/user/';
-import * as mutationTypes from '../../common/modules/base/store/mutationTypes';
+} from "../../common/modules/user/";
+import * as mutationTypes from "../../common/modules/base/store/mutationTypes";
 
 export default {
-  name: 'RegisterComponent',
+  name: "RegisterComponent",
   data() {
     return {
       open: false,
-      Username: '',
-      UserSurname: '',
-      UserEmail: '',
-      Password: '',
-      UserRole: '',
+      Username: "",
+      UserSurname: "",
+      UserEmail: "",
+      Password: "",
+      UserRole: "",
       UserRoles: [],
-      ABN: '',
-      ConfirmPassword: ''
+      ABN: "",
+      ConfirmPassword: ""
     };
   },
   methods: {
     doValidateUsername() {
-      return !this.$validator.errors.has('Username');
+      return !this.$validator.errors.has("Username");
     },
     doValidatePassword() {
-      return !this.$validator.errors.has('Password') && this.doPasswordMatch();
+      return !this.$validator.errors.has("Password") && this.doPasswordMatch();
     },
     doPasswordMatch() {
       return this.Password === this.ConfirmPassword;
@@ -90,7 +90,7 @@ export default {
       this.$store.dispatch(
         `dynamicComponent/${mutationTypes.DYNAMIC_COMPONENT_TOGGLE}`,
         {
-          name: '',
+          name: "",
           key: component
         }
       );

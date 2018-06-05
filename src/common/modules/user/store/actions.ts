@@ -10,9 +10,7 @@ export const actions: ActionTree<IUser, IRootState> = {
     new UserService()
       .GET_USER_BY_EMAIL(user)
       .then((response: AxiosResponse) => {
-        commit(mutationTypes.GET_USER_BY_EMAIL, JSON.parse(
-          response.data
-        ) as IUser);
+        commit(mutationTypes.GET_USER_BY_EMAIL, response.data as IUser);
       })
       .catch(error => {
         const user: IUser = state;
